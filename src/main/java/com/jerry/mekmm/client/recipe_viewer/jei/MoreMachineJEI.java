@@ -42,9 +42,6 @@ public class MoreMachineJEI implements IModPlugin {
 
     @Override
     public void registerCategories(IRecipeCategoryRegistration registry) {
-        if (!MekanismJEI.shouldLoad()) {
-            return;
-        }
         IGuiHelper guiHelper = registry.getJeiHelpers().getGuiHelper();
         registry.addRecipeCategories(new RecyclerRecipeCategory(guiHelper, MMRecipeViewerRecipeType.RECYCLER));
         registry.addRecipeCategories(new PlantingRecipeCategory(guiHelper, MMRecipeViewerRecipeType.PLANTING_STATION));
@@ -61,17 +58,11 @@ public class MoreMachineJEI implements IModPlugin {
 
     @Override
     public void registerGuiHandlers(IGuiHandlerRegistration registry) {
-        if (!MekanismJEI.shouldLoad()) {
-            return;
-        }
         registry.addGenericGuiContainerHandler(GuiMekanism.class, new JeiGuiElementHandler(registry.getJeiHelpers().getIngredientManager()));
     }
 
     @Override
     public void registerRecipes(IRecipeRegistration registry) {
-        if (!MekanismJEI.shouldLoad()) {
-            return;
-        }
         RecipeRegistryHelper.register(registry, MMRecipeViewerRecipeType.RECYCLER, MoreMachineRecipeType.RECYCLING);
         RecipeRegistryHelper.register(registry, MMRecipeViewerRecipeType.PLANTING_STATION, MoreMachineRecipeType.PLANTING_STATION);
 
@@ -90,9 +81,6 @@ public class MoreMachineJEI implements IModPlugin {
 
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registry) {
-        if (!MekanismJEI.shouldLoad()) {
-            return;
-        }
         MMCatalystRegistryHelper.register(registry, true, MMRecipeViewerRecipeType.RECYCLER, MMRecipeViewerRecipeType.PLANTING_STATION, MMRecipeViewerRecipeType.REPLICATOR,
                 MMRecipeViewerRecipeType.FLUID_REPLICATOR, MMRecipeViewerRecipeType.CHEMICAL_REPLICATOR, MMRecipeViewerRecipeType.STAMPING, MMRecipeViewerRecipeType.LATHE,
                 MMRecipeViewerRecipeType.ROLLING_MILL, MMRecipeViewerRecipeType.PRESSING);

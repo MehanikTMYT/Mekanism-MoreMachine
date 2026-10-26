@@ -9,13 +9,15 @@ dependencies {
 //    modCompileOnly(forge.jer)
 
     // Mekanism (jarjar embedded)
-    jarJar(forge.mekanism)
+    // fleet rebase 2026-10-26: НЕ встраиваем jarJar — наш homebaked Mekanism 10.8.0 ставится отдельным модом,
+    // mods.toml сам требует mekanism [10.8.0,); jarJar-встраивание создавало бы дубликат mod id
+//    jarJar(forge.mekanism)
 //    jarJar(forge.meka)
 //    jarJar(forge.mekg)
 //    jarJar(forge.mekt)
-    jarJar(variantOf(forge.mekanism) { classifier("additions") })
-    jarJar(variantOf(forge.mekanism) { classifier("generators") })
-    jarJar(variantOf(forge.mekanism) { classifier("tools") })
+//    jarJar(variantOf(forge.mekanism) { classifier("additions") })
+//    jarJar(variantOf(forge.mekanism) { classifier("generators") })
+//    jarJar(variantOf(forge.mekanism) { classifier("tools") })
 
     compileOnly(forge.mekanism)
 //    compileOnly(forge.meka)
